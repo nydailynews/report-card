@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{{title}} Report Card</title>
+    <meta name="description" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://assets.digitalfirstmedia.com/prod/static/css/denverpost.css?ver=1.0" type="text/css" />
+    <link href='http://extras.mnginteractive.com/live/css/site36/reportcard.css' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ultra|Source+Serif+Pro%3A400%2C400italic%2C600%2C600italic%2C700%2C700italic%7C' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="http://extras.mnginteractive.com/live/media/favIcon/dpo/favicon.ico" type="image/x-icon" />
+    <script src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+    <style type="text/css">
+    .body-copy h1 { 
+        font-size: 1em;
+        color: #666;
+    }
+    h2 { clear:both; }
+    .letter_grades > div, #result > div { padding-top:20px!important; }
+    #result > div { padding-top:50px !important; }
+    .letter_highlight:hover { #DF013A!important; }
+    </style>
+    <script src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+
+    <script>
+        var iframe = '', kiosk = '';
+        if ( document.location.hash === '#iframe' ) iframe = 1;
+        if ( window.top !== window.self ) { iframe = 1; }
+        if ( iframe === '' ) {
+        //Chartbeat startup
+        var _sf_startpt=(new Date()).getTime();
+        var _sf_async_config={};
+        }
+    </script>
+</head>
+<body>
+<div id="dfmHeader"><!--Header Goes Here--></div>
+
+<main>
+    <header class="body-copy">
+        <h1>{{title}}</h1>
+    </header>
+    <section class="body-copy">
+        {{body}}
+    </section>
+    <footer class="body-copy">
+    <script>
+    </script>
+    </footer>
+    <div id="dfmFooter" style="border-top:1px solid #ddd;"><!--CORPORATE FOOTER--></div>
+</body>
+</html>
