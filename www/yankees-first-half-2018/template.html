@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>TITLE</title>
+    <title>YANKEES 2018 REPORT CARD: Grade the Bronx Bombers at the break</title>
     <link rel="icon" type="image/png" href="http://interactive.nydailynews.com/favicons.png">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -12,8 +12,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
     <!-- Titles -->
-    <meta property="og:title" content='TITLE' />
-    <meta name="twitter:title" content='TITLE' />
+    <meta property="og:title" content='YANKEES 2018 REPORT CARD FIRST HALF' />
+    <meta name="twitter:title" content='YANKEES 2018 REPORT CARD FIRST HALF' />
 
     <!-- Descriptions -->
     <meta name="description" content="DESC" />
@@ -40,7 +40,7 @@
         {
             "@context": "http://schema.org",
             "@type": "NewsArticle",
-            "headline": "TITLE",
+            "headline": "YANKEES 2018 REPORT CARD FIRST HALF",
             "url": "CANONICAL",
             "thumbnailUrl": "CANONICALimg/share.png",
             "dateCreated": "2018-07-12T06:00:00Z",
@@ -71,7 +71,8 @@
     <script src="//assets.adobedtm.com/4fc527d6fda921c80e462d11a29deae2e4cf7514/satelliteLib-c91fdc6ac624c6cbcd50250f79786de339793801.js"></script>
     <link rel="stylesheet" href="//interactive.nydailynews.com/nydn/c/rh.css">
     <link rel="stylesheet" href="/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700|PT+Serif" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Ultra|Open+Sans|Open+Sans+Condensed:300,700|PT+Serif" rel="stylesheet">
     <script data-main="//interactive.nydailynews.com/nydn/js/rh.js?r=20170405001" src="//www.nydailynews.com/nydn/js/require.js?r=2016LIST" defer></script>
       
     <script>
@@ -84,22 +85,12 @@
             "targetPath": document.location.pathname
         };
         var nydnDO = [ { 
-            'title':'xxxTITLExxx', 
+            'title':'xxxYANKEES 2018 REPORT CARD FIRST HALFxxx', 
             'link':'CANONICAL', 
             'p_type':'interactive', 
             'section':'interactive' 
         }];
     </script>
-    <style>
-    .body-copy h1 { 
-        font-size: 1em;
-        color: #666;
-    }
-    h2 { clear:both; }
-    .letter_grades > div, #result > div { padding-top:20px!important; }
-    #result > div { padding-top:50px !important; }
-    .letter_highlight:hover { #DF013A!important; }
-    </style>
     
     <!-- ADS-START -->
     <script onload="nydn_ads('one');" src="/includes/template/template.js"></script>
@@ -107,7 +98,7 @@
 
     <script src="/js/jquery.min.js"></script>
 
-    <script>var nav_params = {section: 'projects', url: 'http://interactive.nydailynews.com/project/'};</script>
+    <script>var nav_params = {section: 'Sports', url: 'http://interactive.nydailynews.com/poll/'};</script>
     <script src="/library/vendor-nav/vendor-include.js" defer></script>
 </head>
 
@@ -120,8 +111,17 @@
 <!-- CONTENT-START -->
 <main>
     <article>
-        <div>
     
+        <h1 class="center">TITLE</h1>
+        <div>
+            <ul class="ra-share" id="ra-share-top" style="text-align: center;">
+                <li class="rt-share-f"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=CANONICAL">facebook</a> </li>
+                <li class="ra-share-t"> <a target="_blank" href="https://twitter.com/intent/tweet?text=TITLE&url=CANONICAL&via=NYDNSports&related=NYDNSports,NYDNi">Tweet</a></li>
+                <li class="ra-share-e"> <a href="mailto:?subject=TITLE&amp;body=CANONICAL">email</a> </li>
+            </ul>
+        </div>
+        <p id="datestamp" class="stamp">Published July 20, 2018</p>
+
   <div class="ad center">
     <div id='div-gpt-ad-1423507761396-1'>
       <script>
@@ -129,13 +129,53 @@
       </script>
     </div>
   </div>
+		<script src="../js/app.js"></script>
+        <section>
+            <h2>Yankees players</h2>
+            <h3>Yankees starting pitching</h3>
+            <form id="starting-pitching" onSubmit="event.preventDefault(); on_submit(this); ">
+            <div class="letter_grades">
+                <div><button href="#" class="letter" name="a" onclick="update_form(this);">A</button></div>
+                <div><button href="#" class="letter" name="b" onclick="update_form(this);">B</button></div>
+                <div><button href="#" class="letter" name="c" onclick="update_form(this);">C</button></div>
+                <div><button href="#" class="letter" name="d" onclick="update_form(this);">D</button></div>
+                <div><button href="#" class="letter" name="f" onclick="update_form(this);">F</button></div>
+            </div>
+
+            <input type="hidden" name="grade_input" value="-1">
+			<!--
+            <input type="hidden" id="yankees-starting-pitching" name="yankees-starting-pitching" value="yankees-starting-pitching">
+			-->
+
+            <noscript>
+                <select id="grade_select" size="5">
+                    <option value="-1" default=""></option>
+                    <option value="4">A</option>
+                    <option value="3">B</option>
+                    <option value="2">C</option>
+                    <option value="1">D</option>
+                    <option value="0">F</option>
+                </select>
+            </noscript>
+            <script>
+            jQuery("#slug #grade_select").hide();
+            jQuery("#slugsubmit").prop("disabled", true);
+            </script>
+            <div id="result">
+                <div><a class="letter"></a></div>
+                <p></p>
+            </div>
+        </form>
+            <h3>Bullpen</h3>
+            <h2>Yankees brass</h2>
+            <h3>Manager</h3>
+            <h3>General Manager</h3>
+            <h3>Owner</h3>
+        </section>
 
 
-<section>
-</section>
 
 
-        </div>
     </article>
 </main>
 

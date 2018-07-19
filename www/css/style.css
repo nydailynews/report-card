@@ -255,3 +255,62 @@ article {
 	margin: auto;
 }
 
+/* REPORT CARD LETTER GRADES */
+form #result { display:none; }
+.letter
+{
+    font-family: 'Ultra', serif;
+    text-transform: uppercase;
+    font-size: 5em;
+    color: #0B0B61;
+    text-decoration: none;
+	cursor: pointer;
+	border: 0;
+	background-color: transparent;
+}
+.letter_highlight { color: #DF013A; }
+.letter:hover { color: #DF013A; }
+.letter_grades > div, #result > div
+{
+    vertical-align: middle;
+    text-align: center;
+    vertical-align: middle;
+    float: left;
+    width: 100px;
+    height: 100px;
+    padding-top: 35px;
+    padding-top: 12px;
+    background: url('../img/paper-bg-white.jpg') no-repeat;
+    /*background: url('http://extras.mnginteractive.com/live/media/site36/2014/0905/20140905_035418_paper-bg-white.jpg') no-repeat;*/
+    background-size: contain;
+}
+#result { clear:both; }
+#result .letter { font-size: 5em; }
+#result p { padding-top:50px; }
+#result p span { display:block; }
+#result > div
+{
+    width: 168px;
+    height: 168px;
+    padding-top: 70px;
+}
+
+
+.chart rect {
+  fill: steelblue;
+}
+
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+
+
+    .body-copy h1 { 
+        font-size: 1em;
+        color: #666;
+    }
+    h2 { clear:both; }
+    #result > div { padding-top:50px !important; }

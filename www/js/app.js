@@ -1,5 +1,5 @@
 // aaaaah
-function update_form(element)
+function update_form(el)
 {
     // Convert letter grade to numeric value
     var lookup = {
@@ -16,8 +16,18 @@ function update_form(element)
         jQuery("#slug .letter_grades #" + letters[i]).removeClass('letter_highlight');
     }
 
-    jQuery("#slug .letter_grades #" + element.id).addClass('letter_highlight');
-    jQuery('#slug #grade_input').val(lookup[element.id]);
+    jQuery(el).addClass('letter_highlight');
+
+	el.form.preventDefault();
+	// We know the grade_input hidden form field is the fifth element in the form
+	// * THIS IS BRITTLE AND SHOULD BE ADDRESSED *
+	var input = el.form.elements[5].setAttribute('value', lookup[el.name]);
+    //jQuery('#slug #grade_input').val(lookup[el.id]);
+	console.log($(el.form).serializeArray());
+	console.log($(el.form).attr('action'));
+	console.log(el.name);
+	return false;
+	window.f = el.form;
 }
 
 function lookup_letter_grade(avg)
@@ -35,13 +45,18 @@ function lookup_letter_grade(avg)
     return 'F';
 }
 
-$('#slug').submit(function(e)
+var on_submit = function(e)
 {
     var post_data = $(this).serializeArray();
-    var formURL = $(this).attr('action');
+    //var formURL = $(this).attr('action');
+	console.log(e);
+	window.e = e;
+	// Remove the onclick handlers from the buttons.
+	// This slice.call part turns the nodelist into an array which we then use map() to axe the onclick.
+	[].slice.call(document.querySelectorAll('#' + e.id + ' button')).map(function(x) { x.setAttribute('onclick', '') });
     $.ajax(
     {
-        url: formURL,
+        url: '../handler/',
         type: 'POST',
         data: post_data,
         success:function(data, text_status, jqXHR) 
@@ -61,8 +76,8 @@ $('#slug').submit(function(e)
             console.log(data, text_status, error_thrown);
         }
     });
-    e.preventDefault(); // STOP default action
-    //e.unbind(); // unbind. to stop multiple form submit.
-});
+    //e.preventDefault(); // STOP default action
+    e.unbind(); // unbind. to stop multiple form submit.
+};
  
 //$('#slug').submit();
