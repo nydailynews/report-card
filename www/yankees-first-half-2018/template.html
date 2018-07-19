@@ -133,39 +133,36 @@
         <section>
             <h2>Yankees players</h2>
             <h3>Yankees starting pitching</h3>
-            <form id="starting-pitching" onSubmit="event.preventDefault(); on_submit(this); ">
-            <div class="letter_grades">
-                <div><button href="#" class="letter" name="a" onclick="update_form(this);">A</button></div>
-                <div><button href="#" class="letter" name="b" onclick="update_form(this);">B</button></div>
-                <div><button href="#" class="letter" name="c" onclick="update_form(this);">C</button></div>
-                <div><button href="#" class="letter" name="d" onclick="update_form(this);">D</button></div>
-                <div><button href="#" class="letter" name="f" onclick="update_form(this);">F</button></div>
-            </div>
+            <form id="starting-pitching" onSubmit="event.preventDefault();">
+				<div class="letter_grades">
+					<p></p>
+					<div><button href="#" class="letter" name="a" onclick="update_form(this);">A</button></div>
+					<div><button href="#" class="letter" name="b" onclick="update_form(this);">B</button></div>
+					<div><button href="#" class="letter" name="c" onclick="update_form(this);">C</button></div>
+					<div><button href="#" class="letter" name="d" onclick="update_form(this);">D</button></div>
+					<div><button href="#" class="letter" name="f" onclick="update_form(this);">F</button></div>
+				</div>
+				<input type="hidden" name="grade_input" value="-1">
 
-            <input type="hidden" name="grade_input" value="-1">
-			<!--
-            <input type="hidden" id="yankees-starting-pitching" name="yankees-starting-pitching" value="yankees-starting-pitching">
-			-->
+				<noscript>
+					<select id="grade_select" size="5">
+						<option value="-1" default=""></option>
+						<option value="4">A</option>
+						<option value="3">B</option>
+						<option value="2">C</option>
+						<option value="1">D</option>
+						<option value="0">F</option>
+					</select>
+				</noscript>
+				<div class="result">
+					<p>
+						Readers, on average, graded this a
+						<span><a class="letter"></a></span>
+						with <em></em> votes.
+					</p>
+				</div>
+			</form>
 
-            <noscript>
-                <select id="grade_select" size="5">
-                    <option value="-1" default=""></option>
-                    <option value="4">A</option>
-                    <option value="3">B</option>
-                    <option value="2">C</option>
-                    <option value="1">D</option>
-                    <option value="0">F</option>
-                </select>
-            </noscript>
-            <script>
-            jQuery("#slug #grade_select").hide();
-            jQuery("#slugsubmit").prop("disabled", true);
-            </script>
-            <div id="result">
-                <div><a class="letter"></a></div>
-                <p></p>
-            </div>
-        </form>
             <h3>Bullpen</h3>
             <h2>Yankees brass</h2>
             <h3>Manager</h3>

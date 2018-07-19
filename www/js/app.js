@@ -18,16 +18,11 @@ function update_form(el)
 
     jQuery(el).addClass('letter_highlight');
 
-	el.form.preventDefault();
 	// We know the grade_input hidden form field is the fifth element in the form
 	// * THIS IS BRITTLE AND SHOULD BE ADDRESSED *
 	var input = el.form.elements[5].setAttribute('value', lookup[el.name]);
-    //jQuery('#slug #grade_input').val(lookup[el.id]);
-	console.log($(el.form).serializeArray());
-	console.log($(el.form).attr('action'));
-	console.log(el.name);
-	return false;
-	window.f = el.form;
+	document.querySelector('#' + el.form.id + ' .letter_grades p').textContent = 'You graded this a ';
+	on_submit(el.form);
 }
 
 function lookup_letter_grade(avg)
@@ -49,8 +44,7 @@ var on_submit = function(e)
 {
     var post_data = $(this).serializeArray();
     //var formURL = $(this).attr('action');
-	console.log(e);
-	window.e = e;
+
 	// Remove the onclick handlers from the buttons.
 	// This slice.call part turns the nodelist into an array which we then use map() to axe the onclick.
 	[].slice.call(document.querySelectorAll('#' + e.id + ' button')).map(function(x) { x.setAttribute('onclick', '') });
@@ -59,7 +53,8 @@ var on_submit = function(e)
         url: '../handler/',
         type: 'POST',
         data: post_data,
-        success:function(data, text_status, jqXHR) 
+		id: e.id,
+        success: function(data, text_status, jqXHR) 
         {
             // The data returned from the server will be two values, separated
             // by a comma: the grade average, and the number of votes. 
@@ -67,8 +62,9 @@ var on_submit = function(e)
             grade_average = values[0];
             voters = values[1];
             var letter_grade = lookup_letter_grade(grade_average);
-            $('#" . $slug . " #result a').text(letter_grade);
-            $('#" . $slug . " #result p').text('With ' + voters + ' votes.');
+            $('#' + this.id + ' .result').css('display', 'block');
+            $('#' + this.id + ' .result a').text(letter_grade);
+            $('#' + this.id + ' .result p em').text(voters);
             //console.log(data, text_status, jqXHR);
         },
         error: function(jqXHR, text_status, error_thrown) 
@@ -76,8 +72,4 @@ var on_submit = function(e)
             console.log(data, text_status, error_thrown);
         }
     });
-    //e.preventDefault(); // STOP default action
-    e.unbind(); // unbind. to stop multiple form submit.
 };
- 
-//$('#slug').submit();

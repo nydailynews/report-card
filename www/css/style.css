@@ -256,7 +256,7 @@ article {
 }
 
 /* REPORT CARD LETTER GRADES */
-form #result { display:none; }
+form .result { display:none; }
 .letter
 {
     font-family: 'Ultra', serif;
@@ -270,7 +270,7 @@ form #result { display:none; }
 }
 .letter_highlight { color: #DF013A; }
 .letter:hover { color: #DF013A; }
-.letter_grades > div, #result > div
+.letter_grades > div, .result p span
 {
     vertical-align: middle;
     text-align: center;
@@ -284,17 +284,16 @@ form #result { display:none; }
     /*background: url('http://extras.mnginteractive.com/live/media/site36/2014/0905/20140905_035418_paper-bg-white.jpg') no-repeat;*/
     background-size: contain;
 }
-#result { clear:both; }
-#result .letter { font-size: 5em; }
-#result p { padding-top:50px; }
-#result p span { display:block; }
-#result > div
+.result { clear:both; }
+.result .letter { font-size: 5em; }
+.result p span
 {
+	display: inline-block;
+	float: none;
     width: 168px;
     height: 168px;
     padding-top: 70px;
 }
-
 
 .chart rect {
   fill: steelblue;
@@ -305,12 +304,4 @@ form #result { display:none; }
   font: 10px sans-serif;
   text-anchor: middle;
 }
-
-
-
-    .body-copy h1 { 
-        font-size: 1em;
-        color: #666;
-    }
-    h2 { clear:both; }
-    #result > div { padding-top:50px !important; }
+article h2, article h3 { clear: both; }
