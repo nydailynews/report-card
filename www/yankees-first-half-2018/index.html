@@ -135,15 +135,15 @@
             <h2>Yankees players</h2>
             <h3>Yankees starting pitching</h3>
 			<img src="img/yankees-starting-pitcher.jpg" alt="Yankees starting pitching">
-            <form id="starting-pitching" action="../handler/" method="POST" onSubmit="event.preventDefault();">
-				<p class="handheld">Grade the Yankees’ starting pitching.</p>
+            <form id="starting-pitching" onSubmit="event.preventDefault();">
+				<p>Grade the Yankees’ starting pitching.</p>
 				<div class="letter_grades">
 					<p></p>
-					<div><button name="a" onclick="update_form(this);">A</button></div>
-					<div><button name="b" onclick="update_form(this);">B</button></div>
-					<div><button name="c" onclick="update_form(this);">C</button></div>
-					<div><button name="d" onclick="update_form(this);">D</button></div>
-					<div><button name="f" onclick="update_form(this);">F</button></div>
+					<div><button href="#" class="letter" name="a" onclick="update_form(this);">A</button></div>
+					<div><button href="#" class="letter" name="b" onclick="update_form(this);">B</button></div>
+					<div><button href="#" class="letter" name="c" onclick="update_form(this);">C</button></div>
+					<div><button href="#" class="letter" name="d" onclick="update_form(this);">D</button></div>
+					<div><button href="#" class="letter" name="f" onclick="update_form(this);">F</button></div>
 				</div>
 				<input type="hidden" name="grade_input" value="-1">
 
@@ -156,7 +156,6 @@
 						<option value="1">D</option>
 						<option value="0">F</option>
 					</select>
-					<input type="submit" value="Submit">
 				</noscript>
 				<div class="result">
 					<p>

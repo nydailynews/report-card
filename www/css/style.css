@@ -256,8 +256,18 @@ article {
 }
 
 /* REPORT CARD LETTER GRADES */
+article form {
+	width: 580px;
+	background-color: rgba(225,225,235,0.8);
+	position: relative;
+	top: -200px;
+	left: 100px;
+	padding: 15px 25px 25px 25px;
+	border-radius: 15px;
+	border: 2px solid #0B0B61;
+}
 form .result { display:none; }
-.letter
+.letter, .letter_grades button
 {
     font-family: 'Ultra', serif;
     text-transform: uppercase;
@@ -269,7 +279,10 @@ form .result { display:none; }
 	background-color: transparent;
 }
 .letter_highlight { color: #DF013A; }
-.letter:hover { color: #DF013A; }
+.letter:hover, .letter_grades button:hover { color: #DF013A; }
+.letter_grades {
+	height: 150px;
+}
 .letter_grades > div, .result p span
 {
     vertical-align: middle;
@@ -280,7 +293,7 @@ form .result { display:none; }
     height: 100px;
     padding-top: 35px;
     padding-top: 12px;
-    background: url('../img/paper-bg-white.jpg') no-repeat;
+    background: url('../img/paper-bg-white.png') no-repeat;
     /*background: url('http://extras.mnginteractive.com/live/media/site36/2014/0905/20140905_035418_paper-bg-white.jpg') no-repeat;*/
     background-size: contain;
 }
