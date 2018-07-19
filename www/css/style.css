@@ -70,9 +70,10 @@ main p {
 }
 
 article h2 {
-    font: bold 25px "Open Sans Condensed", sans-serif;
+    font: bold 40px "Open Sans Condensed", sans-serif;
+    text-align: left;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     color: black;
 }
 
@@ -267,6 +268,10 @@ article form {
 	border: 2px solid #0B0B61;
 }
 form .result { display:none; }
+section img {
+	border-radius: 15px;
+	border: 2px solid #0B0B61;
+}
 .letter, .letter_grades button
 {
     font-family: 'Ultra', serif;

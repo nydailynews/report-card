@@ -12,8 +12,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
     <!-- Titles -->
-    <meta property="og:title" content='YANKEES 2018 REPORT CARD FIRST HALF' />
-    <meta name="twitter:title" content='YANKEES 2018 REPORT CARD FIRST HALF' />
+    <meta property="og:title" content='YANKEES 2018 REPORT CARD - FIRST HALF' />
+    <meta name="twitter:title" content='YANKEES 2018 REPORT CARD - FIRST HALF' />
 
     <!-- Descriptions -->
     <meta name="description" content="DESC" />
@@ -40,12 +40,12 @@
         {
             "@context": "http://schema.org",
             "@type": "NewsArticle",
-            "headline": "YANKEES 2018 REPORT CARD FIRST HALF",
+            "headline": "YANKEES 2018 REPORT CARD - FIRST HALF",
             "url": "CANONICAL",
             "thumbnailUrl": "CANONICALimg/share.png",
             "dateCreated": "2018-07-12T06:00:00Z",
             "articleSection": "Interactive",
-            "creator": ["Reporter Name", "Interactive Project"],
+            "creator": ["Joe Murphy", "Interactive Project"],
             "keywords": ["interactive project","interactive"]
         }
     </script>
@@ -67,8 +67,6 @@
     <meta name="localeCountry" content="US"/>
     <meta name="localeLanguage" content="en" />
 
-    <!-- ADOBE ANALYTICS -->
-    <script src="//assets.adobedtm.com/4fc527d6fda921c80e462d11a29deae2e4cf7514/satelliteLib-c91fdc6ac624c6cbcd50250f79786de339793801.js"></script>
     <link rel="stylesheet" href="//interactive.nydailynews.com/nydn/c/rh.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -85,7 +83,7 @@
             "targetPath": document.location.pathname
         };
         var nydnDO = [ { 
-            'title':'xxxYANKEES 2018 REPORT CARD FIRST HALFxxx', 
+            'title':'xxxYANKEES 2018 REPORT CARD - FIRST HALFxxx', 
             'link':'CANONICAL', 
             'p_type':'interactive', 
             'section':'interactive' 
@@ -128,22 +126,22 @@
       <script>
         googletag.cmd.push(function() { googletag.display('div-gpt-ad-1423507761396-1'); });
       </script>
-    </div>
+    </div
   </div>
 		<script src="../js/app.js"></script>
+
         <section>
-            <h2>Yankees players</h2>
-            <h3>Yankees starting pitching</h3>
-			<img src="img/yankees-starting-pitcher.jpg" alt="Yankees starting pitching">
-            <form id="starting-pitching" onSubmit="event.preventDefault();">
-				<p>Grade the Yankees’ starting pitching.</p>
-				<div class="letter_grades">
+            <h2>Starting pitching</h2>
+			<img src="img/yankees-starting-pitching.jpg" alt="Yankees starting pitching">
+            <form id="starting-pitching" action="../handler/" method="POST" onSubmit="event.preventDefault();">
+				<p class="handheld">Grade the Yankees’ starting pitching.</p>
+            <div class="letter_grades">
 					<p></p>
-					<div><button href="#" class="letter" name="a" onclick="update_form(this);">A</button></div>
-					<div><button href="#" class="letter" name="b" onclick="update_form(this);">B</button></div>
-					<div><button href="#" class="letter" name="c" onclick="update_form(this);">C</button></div>
-					<div><button href="#" class="letter" name="d" onclick="update_form(this);">D</button></div>
-					<div><button href="#" class="letter" name="f" onclick="update_form(this);">F</button></div>
+					<div><button name="a" onclick="update_form(this);">A</button></div>
+					<div><button name="b" onclick="update_form(this);">B</button></div>
+					<div><button name="c" onclick="update_form(this);">C</button></div>
+					<div><button name="d" onclick="update_form(this);">D</button></div>
+					<div><button name="f" onclick="update_form(this);">F</button></div>
 				</div>
 				<input type="hidden" name="grade_input" value="-1">
 
@@ -156,6 +154,7 @@
 						<option value="1">D</option>
 						<option value="0">F</option>
 					</select>
+					<input type="submit" value="Submit">
 				</noscript>
 				<div class="result">
 					<p>
@@ -165,16 +164,295 @@
 					</p>
 				</div>
 			</form>
-
-            <h3>Bullpen</h3>
-            <h2>Yankees brass</h2>
-            <h3>Manager</h3>
-            <h3>General Manager</h3>
-            <h3>Owner</h3>
         </section>
 
+        <section>
+            <h2>Bullpen</h2>
+			<img src="img/yankees-bullpen.jpg" alt="Yankees bullpen">
+            <form id="bullpen" action="../handler/" method="POST" onSubmit="event.preventDefault();">
+				<p class="handheld">Grade the Yankees’ bullpen.</p>
+				<div class="letter_grades">
+					<p></p>
+					<div><button name="a" onclick="update_form(this);">A</button></div>
+					<div><button name="b" onclick="update_form(this);">B</button></div>
+					<div><button name="c" onclick="update_form(this);">C</button></div>
+					<div><button name="d" onclick="update_form(this);">D</button></div>
+					<div><button name="f" onclick="update_form(this);">F</button></div>
+				</div>
+				<input type="hidden" name="grade_input" value="-1">
 
+				<noscript>
+					<select id="grade_select" size="5">
+						<option value="-1" default=""></option>
+						<option value="4">A</option>
+						<option value="3">B</option>
+						<option value="2">C</option>
+						<option value="1">D</option>
+						<option value="0">F</option>
+					</select>
+					<input type="submit" value="Submit">
+				</noscript>
+				<div class="result">
+					<p>
+						Readers, on average, graded this a
+						<span><a class="letter"></a></span>
+						with <em></em> votes.
+					</p>
+				</div>
+			</form>
+        </section>
 
+        <section>
+            <h2>Infielders</h2>
+			<img src="img/yankees-infielders.jpg" alt="A photo of the Yankees infield">
+            <form id="infielders" action="../handler/" method="POST" onSubmit="event.preventDefault();">
+				<p class="handheld">Grade the Yankees’ infielders.</p>
+				<div class="letter_grades">
+					<p></p>
+					<div><button name="a" onclick="update_form(this);">A</button></div>
+					<div><button name="b" onclick="update_form(this);">B</button></div>
+					<div><button name="c" onclick="update_form(this);">C</button></div>
+					<div><button name="d" onclick="update_form(this);">D</button></div>
+					<div><button name="f" onclick="update_form(this);">F</button></div>
+				</div>
+				<input type="hidden" name="grade_input" value="-1">
+
+				<noscript>
+					<select id="grade_select" size="5">
+						<option value="-1" default=""></option>
+						<option value="4">A</option>
+						<option value="3">B</option>
+						<option value="2">C</option>
+						<option value="1">D</option>
+						<option value="0">F</option>
+					</select>
+					<input type="submit" value="Submit">
+				</noscript>
+				<div class="result">
+					<p>
+						Readers, on average, graded this a
+						<span><a class="letter"></a></span>
+						with <em></em> votes.
+					</p>
+				</div>
+			</form>
+        </section>
+
+        <section>
+            <h2>Catchers</h2>
+			<img src="img/yankees-catcher.jpg" alt="A photo of a Yankees catcher">
+            <form id="catchers" action="../handler/" method="POST" onSubmit="event.preventDefault();">
+				<p class="handheld">Grade the Yankees’ catchers.</p>
+				<div class="letter_grades">
+					<p></p>
+					<div><button name="a" onclick="update_form(this);">A</button></div>
+					<div><button name="b" onclick="update_form(this);">B</button></div>
+					<div><button name="c" onclick="update_form(this);">C</button></div>
+					<div><button name="d" onclick="update_form(this);">D</button></div>
+					<div><button name="f" onclick="update_form(this);">F</button></div>
+				</div>
+				<input type="hidden" name="grade_input" value="-1">
+
+				<noscript>
+					<select id="grade_select" size="5">
+						<option value="-1" default=""></option>
+						<option value="4">A</option>
+						<option value="3">B</option>
+						<option value="2">C</option>
+						<option value="1">D</option>
+						<option value="0">F</option>
+					</select>
+					<input type="submit" value="Submit">
+				</noscript>
+				<div class="result">
+					<p>
+						Readers, on average, graded this a
+						<span><a class="letter"></a></span>
+						with <em></em> votes.
+					</p>
+				</div>
+			</form>
+        </section>
+
+        <section>
+            <h2>Outfielders</h2>
+			<img src="img/yankees-outfielders.jpg" alt="A photo of a Yankees outfielder">
+            <form id="outfielders" action="../handler/" method="POST" onSubmit="event.preventDefault();">
+				<p class="handheld">Grade the Yankees’ outfielders.</p>
+				<div class="letter_grades">
+					<p></p>
+					<div><button name="a" onclick="update_form(this);">A</button></div>
+					<div><button name="b" onclick="update_form(this);">B</button></div>
+					<div><button name="c" onclick="update_form(this);">C</button></div>
+					<div><button name="d" onclick="update_form(this);">D</button></div>
+					<div><button name="f" onclick="update_form(this);">F</button></div>
+				</div>
+				<input type="hidden" name="grade_input" value="-1">
+
+				<noscript>
+					<select id="grade_select" size="5">
+						<option value="-1" default=""></option>
+						<option value="4">A</option>
+						<option value="3">B</option>
+						<option value="2">C</option>
+						<option value="1">D</option>
+						<option value="0">F</option>
+					</select>
+					<input type="submit" value="Submit">
+				</noscript>
+				<div class="result">
+					<p>
+						Readers, on average, graded this a
+						<span><a class="letter"></a></span>
+						with <em></em> votes.
+					</p>
+				</div>
+			</form>
+        </section>
+
+        <section>
+            <h2>Bench</h2>
+			<img src="img/yankees-bench.jpg" alt="A photo of the Yankees bench">
+            <form id="bench" action="../handler/" method="POST" onSubmit="event.preventDefault();">
+				<p class="handheld">Grade the Yankees’ bench.</p>
+				<div class="letter_grades">
+					<p></p>
+					<div><button name="a" onclick="update_form(this);">A</button></div>
+					<div><button name="b" onclick="update_form(this);">B</button></div>
+					<div><button name="c" onclick="update_form(this);">C</button></div>
+					<div><button name="d" onclick="update_form(this);">D</button></div>
+					<div><button name="f" onclick="update_form(this);">F</button></div>
+				</div>
+				<input type="hidden" name="grade_input" value="-1">
+
+				<noscript>
+					<select id="grade_select" size="5">
+						<option value="-1" default=""></option>
+						<option value="4">A</option>
+						<option value="3">B</option>
+						<option value="2">C</option>
+						<option value="1">D</option>
+						<option value="0">F</option>
+					</select>
+					<input type="submit" value="Submit">
+				</noscript>
+				<div class="result">
+					<p>
+						Readers, on average, graded this a
+						<span><a class="letter"></a></span>
+						with <em></em> votes.
+					</p>
+				</div>
+			</form>
+        </section>
+
+        <section>
+            <h2>Manager</h2>
+			<img src="img/yankees-manager.jpg" alt="A photo of the Yankees managers">
+            <form id="manager" action="../handler/" method="POST" onSubmit="event.preventDefault();">
+				<p class="handheld">Grade the Yankees’ manager.</p>
+				<div class="letter_grades">
+					<p></p>
+					<div><button name="a" onclick="update_form(this);">A</button></div>
+					<div><button name="b" onclick="update_form(this);">B</button></div>
+					<div><button name="c" onclick="update_form(this);">C</button></div>
+					<div><button name="d" onclick="update_form(this);">D</button></div>
+					<div><button name="f" onclick="update_form(this);">F</button></div>
+				</div>
+				<input type="hidden" name="grade_input" value="-1">
+
+				<noscript>
+					<select id="grade_select" size="5">
+						<option value="-1" default=""></option>
+						<option value="4">A</option>
+						<option value="3">B</option>
+						<option value="2">C</option>
+						<option value="1">D</option>
+						<option value="0">F</option>
+					</select>
+					<input type="submit" value="Submit">
+				</noscript>
+				<div class="result">
+					<p>
+						Readers, on average, graded this a
+						<span><a class="letter"></a></span>
+						with <em></em> votes.
+					</p>
+				</div>
+			</form>
+        </section>
+
+        <section>
+            <h2>General Manager</h2>
+			<img src="img/yankees-general-manager.jpg" alt="A photo of the Yankees GM">
+            <form id="general-manager" action="../handler/" method="POST" onSubmit="event.preventDefault();">
+				<p class="handheld">Grade the Yankees’ GM.</p>
+				<div class="letter_grades">
+					<p></p>
+					<div><button name="a" onclick="update_form(this);">A</button></div>
+					<div><button name="b" onclick="update_form(this);">B</button></div>
+					<div><button name="c" onclick="update_form(this);">C</button></div>
+					<div><button name="d" onclick="update_form(this);">D</button></div>
+					<div><button name="f" onclick="update_form(this);">F</button></div>
+				</div>
+				<input type="hidden" name="grade_input" value="-1">
+
+				<noscript>
+					<select id="grade_select" size="5">
+						<option value="-1" default=""></option>
+						<option value="4">A</option>
+						<option value="3">B</option>
+						<option value="2">C</option>
+						<option value="1">D</option>
+						<option value="0">F</option>
+					</select>
+					<input type="submit" value="Submit">
+				</noscript>
+				<div class="result">
+					<p>
+						Readers, on average, graded this a
+						<span><a class="letter"></a></span>
+						with <em></em> votes.
+					</p>
+				</div>
+			</form>
+        </section>
+
+        <section>
+            <h2>Owner</h2>
+			<img src="img/yankees-ownership.jpg" alt="A photo of the Yankees ownership">
+            <form id="owner" action="../handler/" method="POST" onSubmit="event.preventDefault();">
+				<p class="handheld">Grade the Yankees’ ownership.</p>
+				<div class="letter_grades">
+					<p></p>
+					<div><button name="a" onclick="update_form(this);">A</button></div>
+					<div><button name="b" onclick="update_form(this);">B</button></div>
+					<div><button name="c" onclick="update_form(this);">C</button></div>
+					<div><button name="d" onclick="update_form(this);">D</button></div>
+					<div><button name="f" onclick="update_form(this);">F</button></div>
+				</div>
+				<input type="hidden" name="grade_input" value="-1">
+
+				<noscript>
+					<select id="grade_select" size="5">
+						<option value="-1" default=""></option>
+						<option value="4">A</option>
+						<option value="3">B</option>
+						<option value="2">C</option>
+						<option value="1">D</option>
+						<option value="0">F</option>
+					</select>
+					<input type="submit" value="Submit">
+				</noscript>
+				<div class="result">
+					<p>
+						Readers, on average, graded this a
+						<span><a class="letter"></a></span>
+						with <em></em> votes.
+					</p>
+				</div>
+			</form>
+        </section>
 
     </article>
 </main>
