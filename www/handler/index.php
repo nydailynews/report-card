@@ -58,9 +58,12 @@ $result = mysql_query($sql);
 $row = mysql_fetch_row($result);
 $card_id = $row[0];
 
+$ip = $_SERVER['REMOTE_ADDR'];
+if ( $_SERVER['HTTP_X_FORWARDED_FOR'] != '' ) $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+
 // Insert the grade
 if ( $grade != -1 ):
-    $sql = 'INSERT INTO report_card_grade (card_id, grade, ip) VALUES (' . $card_id . ', ' . $grade . ', "' . $_SERVER['X_FORWARDED_FOR'] . '")';
+    $sql = 'INSERT INTO report_card_grade (card_id, grade, ip) VALUES (' . $card_id . ', ' . $grade . ', "' . $ip . '")';
     $result = mysql_query($sql);
 endif;
 
