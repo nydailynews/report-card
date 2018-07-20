@@ -60,7 +60,7 @@ $card_id = $row[0];
 
 // Insert the grade
 if ( $grade != -1 ):
-    $sql = 'INSERT INTO report_card_grade (card_id, grade, ip) VALUES (' . $card_id . ', ' . $grade . ', "' . $_SERVER['REMOTE_ADDR'] . '")';
+    $sql = 'INSERT INTO report_card_grade (card_id, grade, ip) VALUES (' . $card_id . ', ' . $grade . ', "' . $_SERVER['X_FORWARDED_FOR'] . '")';
     $result = mysql_query($sql);
 endif;
 
