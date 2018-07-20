@@ -60,20 +60,21 @@ $card_id = $row[0];
 
 // Insert the grade
 if ( $grade != -1 ):
-    $sql = 'INSERT INTO report_card_grade (cards_id, grade, ip) VALUES (' . $card_id . ', ' . $grade . ', "' . $_SERVER['REMOTE_ADDR'] . '")';
+    $sql = 'INSERT INTO report_card_grade (card_id, grade, ip) VALUES (' . $card_id . ', ' . $grade . ', "' . $_SERVER['REMOTE_ADDR'] . '")';
     $result = mysql_query($sql);
 endif;
 
 // Compute the current grade results
-$sql = 'SELECT count(grade) as voters, AVG(grade) as grade FROM report_card_grade WHERE cards_id = ' . $card_id;
+$sql = 'SELECT count(grade) as voters, AVG(grade) as grade FROM report_card_grade WHERE card_id = ' . $card_id;
 $result = mysql_query($sql);
-$row = mysql_fetch_row($result);
+$row = @mysql_fetch_row($result);
+if ( !isset($row) ) die();
 $voters = $row[0];
 $voters_midpoint = floor($voters/2);
 $grade_mean = $row[1];
 
 // Now get the letter-grade distribution:
-$sql = 'SELECT COUNT(*) as count, grade FROM report_card_grade WHERE cards_id = ' . $card_id . ' GROUP BY grade ORDER BY grade DESC';
+$sql = 'SELECT COUNT(*) as count, grade FROM report_card_grade WHERE card_id = ' . $card_id . ' GROUP BY grade ORDER BY grade DESC';
 $result = mysql_query($sql);
 $letters = array(
     'a' => 0,

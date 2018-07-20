@@ -271,7 +271,7 @@ article form {
 }
 form .result { display:none; }
 section img {
-    width: 100%;
+    max-width: 600px;
 	border-radius: 15px;
 	border: 2px solid #0B0B61;
 }
@@ -286,7 +286,7 @@ section img {
 	border: 0;
 	background-color: transparent;
 }
-.letter_highlight { color: #DF013A; }
+form .letter_grades .letter_highlight { color: #DF013A; }
 .letter:hover, .letter_grades button:hover { color: #DF013A; }
 .letter_grades {
 	height: 116px;
@@ -350,5 +350,8 @@ article h2, article h3 { clear: both; }
         width: 80px;
         height: 80px;
         padding-top: 27px;
+    }
+    section img {
+        width: 100%;
     }
 }
