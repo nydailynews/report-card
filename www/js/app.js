@@ -43,6 +43,12 @@ function lookup_letter_grade(avg)
 var on_submit = function(e)
 {
     var post_data = $(this).serializeArray();
+    var post_data = {
+        'group-slug': config['slug'],
+        'slug': config['slug'] + '-' + e.id,
+        'grade_input': e.elements['grade_input'].value
+    };
+    //console.log(e.elements, post_data);
     //var formURL = $(this).attr('action');
 
 	// Remove the onclick handlers from the buttons.
@@ -54,6 +60,7 @@ var on_submit = function(e)
         type: 'POST',
         data: post_data,
 		id: e.id,
+        slug: config['slug'],
         success: function(data, text_status, jqXHR) 
         {
             // The data returned from the server will be two values, separated

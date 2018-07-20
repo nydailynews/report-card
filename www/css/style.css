@@ -56,7 +56,7 @@ article h2 {
     font: bold 40px "Open Sans Condensed", sans-serif;
     text-align: left;
     text-transform: uppercase;
-    margin-top: 50px;
+    margin-top: 150px;
     margin-bottom: 0;
     color: black;
 }
@@ -75,6 +75,9 @@ main p {
     line-height: 25px;
     margin-top: 15px;
     text-align: left;
+}
+main form p {
+    margin-top: 0;
 }
 
 div.intro p#datestamp + p:first-letter {
@@ -252,7 +255,7 @@ svg.intralink {
 }
 
 article {
-	width: 800px;
+	max-width: 800px;
 	margin: auto;
 }
 
@@ -268,6 +271,7 @@ article form {
 }
 form .result { display:none; }
 section img {
+    width: 100%;
 	border-radius: 15px;
 	border: 2px solid #0B0B61;
 }
@@ -285,7 +289,7 @@ section img {
 .letter_highlight { color: #DF013A; }
 .letter:hover, .letter_grades button:hover { color: #DF013A; }
 .letter_grades {
-	height: 150px;
+	height: 116px;
 }
 .letter_grades > div, .result p span
 {
@@ -322,3 +326,29 @@ section img {
   text-anchor: middle;
 }
 article h2, article h3 { clear: both; }
+.handheld {
+    display: none;
+}
+@media only screen and (max-width: 800px) {
+    .handheld {
+        display: block;
+    }
+    article form {
+        width: 100%;
+        margin: -100px 0 0 0;
+        padding: 5px 8px 8px 8px;
+    }
+    .letter_grades > div, .result p span {
+        width: 60px;
+        height: 60px;
+        padding-top: 7px;
+    }
+    .letter, .letter_grades button, .result .letter {
+        font-size: 3em;
+    }
+    .result p span {
+        width: 80px;
+        height: 80px;
+        padding-top: 27px;
+    }
+}

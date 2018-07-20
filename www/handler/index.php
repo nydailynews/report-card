@@ -4,16 +4,8 @@
 	header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: GET, POST");
     header("Vary: Accept-Encoding");
-	if ( !isset($SERVER_ROOT) ) $SERVER_ROOT = '../../../../';
-	if ( !isset($TABLE) ) exit('');
-	if ( !isset($_REQUEST['vote']) ) exit('');
-
-
-	$vote = intval($_REQUEST['vote']);
-	$player_id = htmlspecialchars($_REQUEST['player']);
-
-
-
+	if ( !isset($SERVER_ROOT) ) $SERVER_ROOT = '../../../';
+	//if ( !isset($_REQUEST['grade_input']) ) exit('');
 
 // Because handling form requests is easier with PHP.
 // Return the AJAX request
@@ -73,11 +65,12 @@ if ( $grade != -1 ):
 endif;
 
 // Compute the current grade results
-$sql = 'SELECT count(grade) as voters, AVG(grade) as grade FROM report_card_grade WHERE cards_id = ' . $card_id . ' LIMIT 1';
+$sql = 'SELECT count(grade) as voters, AVG(grade) as grade FROM report_card_grade WHERE cards_id = ' . $card_id;
 $result = mysql_query($sql);
 $row = mysql_fetch_row($result);
 $voters = $row[0];
-$grade_average = $row[1];
+$voters_midpoint = floor($voters/2);
+$grade_mean = $row[1];
 
 // Now get the letter-grade distribution:
 $sql = 'SELECT COUNT(*) as count, grade FROM report_card_grade WHERE cards_id = ' . $card_id . ' GROUP BY grade ORDER BY grade DESC';
@@ -112,7 +105,7 @@ endwhile;
 
 //echo $grade_average . ',' . $voters;
 //echo $grade_average . ',' . $voters . ',0,0,0,0,0';
-echo $grade_average . ',' . $voters . ',' . $letters['a'] . ',' . $letters['b'] . ',' . $letters['c'] . ',' . $letters['d'] . ',' . $letters['f'];
+echo $grade_mean . ',' . $voters . ',' . $letters['a'] . ',' . $letters['b'] . ',' . $letters['c'] . ',' . $letters['d'] . ',' . $letters['f'];
 
 
 //echo '<pre>';
