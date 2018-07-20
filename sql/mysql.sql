@@ -39,5 +39,5 @@ CREATE TABLE IF NOT EXISTS `report_card_grade` (
   `grade` tinyint(4) NOT NULL,
   `ip` varchar(30) COLLATE utf8_bin NOT NULL,
   UNIQUE KEY `id` (`id`),
-  KEY `cards_id` (`cards_id`)
+  KEY `card_id` (`card_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
