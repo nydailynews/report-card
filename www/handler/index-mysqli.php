@@ -4,16 +4,6 @@
 	header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Methods: GET, POST");
     header("Vary: Accept-Encoding");
-	if ( !isset($SERVER_ROOT) ) $SERVER_ROOT = '../../../../';
-	if ( !isset($TABLE) ) exit('');
-	if ( !isset($_REQUEST['vote']) ) exit('');
-
-
-	$vote = intval($_REQUEST['vote']);
-	$player_id = htmlspecialchars($_REQUEST['player']);
-
-
-
 
 // Because handling form requests is easier with PHP.
 // Return the AJAX request
@@ -46,51 +36,46 @@ if ( $grade < 0 ) header('Location: ' . $_SERVER['HTTP_REFERER'] . '?source=err_
 
 // Passed the security checks. Now we add the record to the database.
 $slug = htmlspecialchars(str_replace('_', '-', $_POST['slug']));
-require_once ($SERVER_ROOT . 'includes/php/mysql_connect_staging.php');
-
-/*
-$query = 'SELECT * FROM ' . $TABLE . ' WHERE id = "' . $player_id . '" LIMIT 1';
-$result = @mysql_query($query);
-
-while ($row = mysql_fetch_array($result, MYSQL_ASSOC)):
-	    $yes = $row['keep'];
-    $no = $row['dump'];
-endwhile;
-
-$update = 'UPDATE Interactive.' . $TABLE . ' SET ' . $verb . '=' . $value . ' WHERE id = "' . $player_id . '" LIMIT 1';
-$result = @mysql_query($update);
-*/
+$connection = array(
+    'user' => '',
+    'password' => '',
+    'db' => '');
+$db = new mysqli('localhost', $connection['user'], $connection['password'], $connection['db']);
+if ( $db->connect_errno )
+{
+    echo 'Could not connect to database: ' . $db->connect_error;
+}
 // Figure out which card we're inserting for:
 $sql = 'SELECT id FROM report_card WHERE slug = "' . $slug . '" LIMIT 1';
-$result = mysql_query($sql);
-$row = mysql_fetch_row($result);
-$card_id = $row[0];
+$result = $db->query($sql);
+$results = $result->fetch_object();
+$card_id = $results->id;
 
 // Insert the grade
 if ( $grade != -1 ):
     $sql = 'INSERT INTO report_card_grade (cards_id, grade, ip) VALUES (' . $card_id . ', ' . $grade . ', "' . $_SERVER['REMOTE_ADDR'] . '")';
-    $result = mysql_query($sql);
+    $result = $db->query($sql);
 endif;
 
 // Compute the current grade results
-$sql = 'SELECT count(grade) as voters, AVG(grade) as grade FROM report_card_grade WHERE cards_id = ' . $card_id . ' LIMIT 1';
-$result = mysql_query($sql);
-$row = mysql_fetch_row($result);
-$voters = $row[0];
-$grade_average = $row[1];
+$sql = 'SELECT count(grade) as voters, AVG(grade) as grade FROM report_card_grade WHERE cards_id = ' . $card_id;
+$result = $db->query($sql);
+$results = $result->fetch_object();
+$grade_average = $results->grade;
+$voters = $results->voters;
 
 // Now get the letter-grade distribution:
 $sql = 'SELECT COUNT(*) as count, grade FROM report_card_grade WHERE cards_id = ' . $card_id . ' GROUP BY grade ORDER BY grade DESC';
-$result = mysql_query($sql);
+$result = $db->query($sql);
 $letters = array(
     'a' => 0,
     'b' => 0,
     'c' => 0,
     'd' => 0,
     'f' => 0);
-while ( $row = mysql_fetch_array($result, MYSQL_ASSOC)):
+while ( $results = $result->fetch_object() ):
     $letter = 'e';
-    switch ( $row['grade'] ):
+    switch ( $results->grade ):
         case '4':
             $letter = 'a';
             break;
@@ -107,7 +92,7 @@ while ( $row = mysql_fetch_array($result, MYSQL_ASSOC)):
             $letter = 'f';
             break;
     endswitch;
-    $letters[$letter] = $row['count'];
+    $letters[$letter] = $results->count;
 endwhile;
 
 //echo $grade_average . ',' . $voters;
